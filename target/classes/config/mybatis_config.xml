@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration> 
+<typeAliases>
+ <typeAlias alias="mv" type="com.letsgotravel.myapp.domain.MemberVo"/>
+ <typeAlias alias="scri" type="com.letsgotravel.myapp.domain.SearchCriteria"/>
+ <typeAlias alias="sv" type="com.letsgotravel.myapp.domain.ScrapVo"/>
+ <typeAlias alias="pv" type="com.letsgotravel.myapp.domain.PrescriptionVo"/>
+ <typeAlias alias="dv" type="com.letsgotravel.myapp.domain.DrugVo"/>
+</typeAliases>
+</configuration>

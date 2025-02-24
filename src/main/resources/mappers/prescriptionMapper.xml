@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.letsgotravel.myapp.persistance.PrescriptionMapper">
+
+
+	<delete id="resetDrugsByMidx" parameterType="int">
+	    DELETE FROM DRUG WHERE pidx IN (SELECT pidx FROM PRESCRIPTION WHERE midx = #{midx});
+	</delete>
+	
+	<delete id="resetPrescriptionsByMidx" parameterType="int">
+	    DELETE FROM PRESCRIPTION WHERE midx = #{midx};
+	</delete>
+
+
+    <!-- 회원별 처방 목록 조회 -->
+    <select id="selectPrescriptionsByMember" resultType="com.letsgotravel.myapp.domain.PrescriptionVo" parameterType="int">
+        SELECT * FROM PRESCRIPTION WHERE midx = #{midx}
+    </select>
+
+    <!-- 특정 처방전 상세 정보 조회 -->
+    <select id="selectPrescriptionDetail" resultMap="PrescriptionWithDrugs" parameterType="int">
+	    SELECT 
+	        p.*,
+	        d.didx, d.pidx, d.resDrugName, d.resPrescribeDrugEffect, d.resIngredients, d.resDrugCode,
+	        d.resContent, d.resOneDose, d.resDailyDosesNumber, d.resTotalDosingdays
+	    FROM PRESCRIPTION p
+	    LEFT JOIN DRUG d ON p.pidx = d.pidx
+	    WHERE p.pidx = #{pidx}
+	</select>
+	
+	<resultMap id="PrescriptionWithDrugs" type="com.letsgotravel.myapp.domain.PrescriptionVo">
+	    <id property="pidx" column="pidx"/>
+	    <result property="midx" column="midx"/>
+	    <result property="resMenufactureDate" column="resMenufactureDate"/>
+	    <result property="resPrescribeOrg" column="resPrescribeOrg"/>
+	    <result property="resTelNo" column="resTelNo"/>
+	    <result property="commBrandName" column="commBrandName"/>
+	    <result property="commTelNo" column="commTelNo"/>
+	    
+	    <!-- 약물 리스트 매핑 -->
+	    <collection property="drugs" ofType="com.letsgotravel.myapp.domain.DrugVo">
+	        <id property="didx" column="didx"/>
+	        <result property="pidx" column="pidx"/>
+	        <result property="resDrugName" column="resDrugName"/>
+	        <result property="resPrescribeDrugEffect" column="resPrescribeDrugEffect"/>
+	        <result property="resIngredients" column="resIngredients"/>
+	        <result property="resDrugCode" column="resDrugCode"/>
+	        <result property="resContent" column="resContent"/>
+	        <result property="resOneDose" column="resOneDose"/>
+	        <result property="resDailyDosesNumber" column="resDailyDosesNumber"/>
+	        <result property="resTotalDosingdays" column="resTotalDosingdays"/>
+	    </collection>
+	</resultMap>	
+
+    <!-- 처방전 저장 -->
+    <insert id="insertPrescription" parameterType="com.letsgotravel.myapp.domain.PrescriptionVo" useGeneratedKeys="true" keyProperty="pidx">
+	    INSERT INTO PRESCRIPTION (midx, resMenufactureDate, resPrescribeOrg, resTelNo, commBrandName, commTelNo, date, ip, delyn)
+	    VALUES (#{midx}, #{resMenufactureDate}, #{resPrescribeOrg}, #{resTelNo}, #{commBrandName}, #{commTelNo}, NOW(), '127.0.0.1', 'N')
+	</insert>
+    
+    <select id="findPrescriptionsByMidx" parameterType="int" resultType="com.letsgotravel.myapp.domain.PrescriptionVo">
+    	SELECT * FROM PRESCRIPTION WHERE midx = #{midx} ORDER BY date DESC
+	</select>
+	
+	<insert id="insertDrug" parameterType="com.letsgotravel.myapp.domain.DrugVo">
+	    INSERT INTO DRUG (pidx, resDrugName, resPrescribeDrugEffect, resIngredients, resDrugCode, resContent, resOneDose, resDailyDosesNumber, resTotalDosingdays, date, ip, delyn)
+	    VALUES (#{pidx}, #{resDrugName}, #{resPrescribeDrugEffect}, #{resIngredients}, #{resDrugCode}, #{resContent}, #{resOneDose}, #{resDailyDosesNumber}, #{resTotalDosingdays}, NOW(), '127.0.0.1', 'N')
+	</insert>
+
+</mapper>

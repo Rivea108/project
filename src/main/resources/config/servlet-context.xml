@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- InternalResourceViewResolver : 문자에 관여 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  <!-- 자동으로 객체 생성 -->
+		<beans:property name="prefix" value="/" />  <!-- 앞에 고정하는 (주소)값 -->
+		<beans:property name="suffix" value=".jsp" />  <!-- 뒤에 고정하는 (주소)값 -->
+	</beans:bean>
+	
+	<!-- 파일첨부 -->
+ 	<beans:bean id="uploadPath" class="java.lang.String">  <!-- uploadPath라는 String객체 -->
+		<beans:constructor-arg value="D:/dev/springUpload"></beans:constructor-arg>  <!-- 생성자의 인자값 -->
+	</beans:bean>
+	
+	<!-- CommonsMultipartResolver : 멀티파일 업로드에 관여 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  <!-- 자바에서 사용했던 멀티파일 설정 @MultipartConfig인듯 -->
+		<beans:property name="maxUploadSize" value="10485760" />  <!-- 10MB -->
+	</beans:bean>
+		
+		
+	<!-- 인터셉트 -->
+	<beans:bean id="loginInterceptor" class="com.letsgotravel.myapp.interceptor.LoginInterceptor" />
+	<beans:bean id="authInterceptor" class="com.letsgotravel.myapp.interceptor.AuthInterceptor" />
+	<interceptors>
+		<!-- 로그인 인터셉트 -->
+		<interceptor>
+			<mapping path="/member/memberLoginAction.do" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+		
+		<!-- 로그인 인증 인터셉트 -->
+		<interceptor>			
+			<mapping path="/member/memberMypage.do" />
+			<mapping path="/member/memberMypageAction.do" />
+			<mapping path="/member/memberDeleteAction.do" />
+			
+				<!-- ✅ 처방전 관련 경로에도 로그인 체크 적용 -->
+			<mapping path="/prescription/prescriptionList.do" />
+			<mapping path="/prescription/prescriptionDetail.do" />
+			<beans:ref bean="authInterceptor" />
+		</interceptor>
+	</interceptors>
+	
+	
+	<!-- 적용 범위 지정 -->
+	<context:component-scan base-package="com.letsgotravel.myapp.controller" />	
+	
+</beans:beans>

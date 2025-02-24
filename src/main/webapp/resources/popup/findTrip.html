@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관광지 및 음식점 검색</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/earlyaccess/jejugothic.css"
+    />
+    <style>
+      @import url("//fonts.googleapis.com/earlyaccess/jejugothic.css");
+      body {
+        font-family: "Jeju Gothic";
+        background-color: #f8f8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .popup {
+        background: #f8f8ff;
+        width: 423px;
+        height: 423px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .popup h3 {
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 20px;
+        font-weight: normal;
+      }
+      .search-box {
+        width: 45%;
+        padding: 8px;
+        border: 3px solid #3b8eef;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .map-container {
+        width: 80%;
+        height: 228px;
+        background: #f8f8ff;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 1, 1, 0.2);
+        margin-bottom: 15px;
+      }
+      .buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .btn {
+        font-family: "Jeju Gothic";
+        background: #3b8eef;
+        color: #f8f8ff;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .btn-close {
+        font-family: "Jeju Gothic";
+        background: none;
+        border: 1px solid #3b8eef;
+        color: #3b8eef;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    </style>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Yd9X2Q14W-_6x3Jj5C9E9E7JtmBkC-U&libraries=places&callback=initMap"
+    ></script>
+  </head>
+  <body>
+    <div class="popup">
+      <h3>🤔 관광지 / 음식점을 입력해주세요</h3>
+      <input
+        type="text"
+        class="search-box"
+        id="searchbox"
+        placeholder="관광지 / 음식점을 입력해주세요"
+      />
+      <div class="map-container" id="map"></div>
+      <div class="buttons">
+        <button class="btn" onclick="savePlace()">추가</button>
+        <button class="btn-close" onclick="closePopup()">닫기</button>
+      </div>
+    </div>
+
+    <script>
+      let map;
+      let markers = [];
+      let selectedPlace = null;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 37.5665, lng: 126.978 }, // 서울 중심 좌표
+          zoom: 10,
+          mapTypeControl: false,
+          zoomControl: false,
+          scaleControl: false,
+        });
+
+        const input = document.getElementById("searchbox");
+
+        const autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo("bounds", map);
+
+        autocomplete.addListener("place_changed", () => {
+          const place = autocomplete.getPlace();
+          if (!place.geometry || !place.geometry.location) {
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          clearMarkers();
+          const marker = new google.maps.Marker({
+            map,
+            position: place.geometry.location,
+          });
+          markers.push(marker);
+          map.setCenter(place.geometry.location);
+          map.setZoom(15);
+
+          selectedPlace = {
+            name: place.name,
+            address: place.formatted_address || "",
+            location: {
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+            },
+          };
+        });
+      }
+
+      function clearMarkers() {
+        markers.forEach((marker) => marker.setMap(null));
+        markers = [];
+      }
+
+      function savePlace() {
+        if (selectedPlace) {
+          const url = new URL("anotherpage.html", window.location.href);
+          url.searchParams.append("name", selectedPlace.name);
+          url.searchParams.append("address", selectedPlace.address);
+          url.searchParams.append("lat", selectedPlace.location.lat);
+          url.searchParams.append("lng", selectedPlace.location.lng);
+
+          window.location.href = url.toString();
+        } else {
+          alert("장소를 먼저 검색해주세요.");
+        }
+      }
+
+      function closePopup() {
+        document.querySelector(".popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

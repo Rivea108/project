@@ -1,0 +1,196 @@
+@charset "utf-8";
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #F8F8FF; font-size: 14px; color: #333; font-family: "Jeju Gothic", serif; 
+    line-height: 1; }
+li { list-style: none; }
+a { text-decoration: none; color: inherit; }
+input, .badge-label { border: 1px solid #333; border-radius: 5px; font-family: "Jeju Gothic", serif;
+    padding: 8px; background: transparent; vertical-align: middle; line-height: 1; }
+input:focus-visible { outline: none; border-color: #3B8EEF; }
+button { background: transparent; cursor: pointer; font-family: "Jeju Gothic", serif; }
+
+body, html, .wrap { height: 100%; }
+.inner { width: 1260px; padding: 50px 30px 0; flex: 1 1 auto; margin: 0 auto; }
+
+.flex { display: flex; }
+.relative { position: relative; }
+.none { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+.center { text-align: center; }
+.right { text-align: right; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-column { flex-direction: column; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-center { justify-content: center; }
+.align-items-center { align-items: center; }
+.bold { font-weight: bold; }
+.no-wrap { white-space: nowrap; }
+
+.btn-box { gap: 15px; }
+.btn { border-radius: 20px; padding: 6px 30px; font-size: 24px; color: #3B8EEF; border: 1px solid #3B8EEF; }
+.btn2 { color: #4FA3C4; border-color: #4FA3C4; }
+.btn.blue { background: #3B8EEF; color: #fff; }
+.btn.green { background: #4FA3C4; color: #fff; border-color: #4FA3C4; }
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.ml-1 { margin-left: 1rem; }
+.ml-2 { margin-left: 2rem; }
+.ml-3 { margin-left: 3rem; }
+.mr-2 { margin-right: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.mt-20 { margin-top: 20px; }
+.mt-50 { margin-top: 50px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-50 { margin-bottom: 50px; }
+.mb-70 { margin-bottom: 70px; }
+.ml-5 { margin-left: 5px; }
+.ml-10 { margin-left: 10px; }
+.ml-25 { margin-left: 25px; }
+.mr-20 { margin-right: 20px; }
+.mr-25 { margin-right: 25px; }
+
+.pt-10 { padding-top: 10px; }
+.pt-30 { padding-top: 30px; }
+.pt-50 { padding-top: 50px; }
+.pl-35 { padding-left: 35px; }
+
+.pl-2 { padding-left: 2rem; }
+
+.w-200 { width: 400px; }
+
+.travel .step { width: fit-content; gap: 9rem; margin: 0 auto 70px; }
+.travel .step-item:before { position: absolute; content: ""; height: 1px; width: 9rem ; background: #ccc;
+    top: 50%; left: calc(-9rem - 2px); transform: translateY(-50%); }
+.travel .step-item { background: #fff; border-radius: 50%; width: 46px; height: 46px;
+    color: #A8A8A8; border: 2px solid #A8A8A8; }
+.travel .step-item.on { color: #3B8EEF; border-color: #3B8EEF; }
+.travel .step-item.finished { color: #2ECC71; border-color: #2ECC71; }
+.travel .step-item.on:before, .travel .step-item.finished:before { background: #2ECC71; }
+
+.travel .main-title { font-size: 32px; font-weight: normal; }
+
+
+/* 여행 조건 입력 */
+#travel-conditions .title { font-size: 26px; font-weight: normal; }
+#travel-conditions .row, #travel-input input { font-size: 20px; }
+#travel-conditions .badge-label-box { gap: 1rem; }
+#travel-conditions input, #travel-conditions .badge-label { width: 142px; font-size: 20px; }
+#travel-conditions .badge-label { text-align: center; cursor: pointer; line-height: 25px; }
+
+#travel-conditions input[type="radio"]:checked + .badge-label { 
+    background: #C3DDFD; color: #1C64F2; border-color: #1C64F2; }
+    
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(1):checked + .badge-label { 
+    background: #FBD5D5; color: #E02424; border-color: #E02424; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(2):checked + .badge-label {
+     background: #FCD9BD; color: #D03801; border-color: #D03801; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(3):checked + .badge-label { 
+    background: #FCE96A; color: #9F580A; border-color: #9F580A; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(4):checked + .badge-label { 
+    background: #BCF0DA; color: #057A55; border-color: #057A55; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(5):checked + .badge-label { 
+    background: #C3DDFD; color: #1C64F2; border-color: #1C64F2; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(6):checked + .badge-label { 
+    background: #CDDBFE; color: #5850EC; border-color: #5850EC; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(7):checked + .badge-label {
+     background: #DCD7FE; color: #7E3AF2; border-color: #7E3AF2; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(8):checked + .badge-label { 
+    background: #AFECEF; color: #047481; border-color: #047481; }
+#travel-conditions .duplication input[type="checkbox"]:nth-of-type(9):checked + .badge-label { 
+    background: #FAD1E8; color: #D61F69; border-color: #D61F69; }
+
+
+/* 도시 선택 */
+#travel-select { gap: 1rem; }
+#travel-select .title { font-size: 28px; font-weight: normal; }
+#travel-select .select-item { width: 33.3333%; }
+#travel-select .select-item img { border-radius: 10px; box-shadow: 4px 2px 10px rgba(0,0,0,.4); }
+#travel-select .border { border-top: 2px dotted #ccc; }
+#travel-select .border:first-of-type { display: none; }
+#travel-select .sub-title { font-size: 26px; }
+#travel-select .text { font-size: 20px; text-indent: 2.8rem; line-height: 1.5; }
+#travel-select .btn { display: inline-block; line-height: normal; cursor: pointer; }
+#travel-select input[type="radio"]:checked + .btn { background: #3B8EEF; color: #fff; }
+#travel-select .addition .border { display: block; }
+
+
+/* 여행지 선택 */
+#travel-sights .check-box { width: 430px; }
+#travel-sights .check-box label { font-size: 26px; cursor: pointer; }
+#travel-sights .check-box label:before { content: ""; border: 2px solid #333; width: 22px; height: 22px; text-align: center; 
+    color: #fff; font-size: 22px; position: absolute; left: 0; top: 50%; transform: translateY(-60%);}
+#travel-sights .check-box input[type="checkbox"]:checked + label:before { content: "∨"; background: #3B8EEF; 
+    border-color: #3B8EEF; }
+#travel-sights .search-icon { border-color: transparent; border-radius: 50%; width: 24px; height: 24px; vertical-align: text-bottom; }
+#travel-sights .search-icon .icon { color: #4FA3C4; line-height: 20px; font-size: 18px; }
+
+#travel-sights .border-vertical { border-left: 2px dotted #ccc; }
+
+#travel-sights .info { flex: 1 1 auto; }
+#travel-sights img { border-radius: 10px; width: 350px; }
+#travel-sights .info p { font-size: 26px; line-height: 1.5; }
+
+#travel-sights .btn { cursor: pointer; }
+.check-box { display: none; }
+#travel-sights .btn2:checked { background: #4FA3C4; color: #fff; }
+#travel-sights input[type="radio"]:checked + .check-box { display: block; }
+
+
+/* 풀캘린더 */
+#calendar * { line-height: 1.8; }
+.calendar-box { min-width: 100%; }
+#calendar tbody .fc-scrollgrid-section:not(:last-of-type),
+.fc .fc-toolbar { display: none; }
+.fc-day { width: 120px; }
+.fc .fc-scrollgrid-section-sticky > * { background: #F8F8FF; }
+.calendar-wrap { max-height: calc(100vh - 530px); overflow: auto; }
+.fc .fc-scrollgrid-section > * { border-top: 1px solid var(--fc-border-color); }
+
+
+/* 장소 추가 팝업 */
+.popup {
+        background: #F8F8FF;
+        width: 423px;
+        height: 423px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .popup h3 {
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 20px;
+        font-weight: normal;
+    }
+    .popup .search-box {
+        width: 45%;
+        padding: 8px;
+        border: 3px solid #3B8EEF;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .popup .map-container {
+        width: 80%;
+        height: 228px;
+        background: #F8F8FF;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 1, 1, 0.2);
+        margin-bottom: 15px;
+    }

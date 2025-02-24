@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기 팝업</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/jejugothic.css">
+    <style>
+@import url('//fonts.googleapis.com/earlyaccess/jejugothic.css');
+        body {
+        font-family: 'Jeju Gothic';
+            background-color: #F8F8FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .popup {
+            background: #F8F8FF;
+            width: 423px;
+            height: 235px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+        .popup p {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .id-placeholder {
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .close-btn {
+            font-family: 'Jeju Gothic';
+            background: none;
+            width:53px;
+            border: 1px solid #3B8EEF;
+            color: #3B8EEF;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h3>아이디 찾기</h3>
+        <p>xxx님의 아이디는 아래와 같습니다.</p>
+        <div class="id-placeholder">----------</div>
+        <br>
+        <button class="close-btn" onclick="closePopup()">닫기</button>
+    </div>
+    
+    <script>
+        function closePopup() {
+            document.querySelector('.popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

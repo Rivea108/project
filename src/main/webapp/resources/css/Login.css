@@ -1,0 +1,238 @@
+@charset "UTF-8";
+@import url('//fonts.googleapis.com/earlyaccess/jejugothic.css');
+
+		body, ul, li, h2 {
+		    margin: 0;
+		    padding: 0;
+		    list-style: none;
+		    font-family: 'Jeju Gothic';
+		}
+		
+		a {
+		    color: inherit;
+		    text-decoration: none;
+		}
+		
+		.header {
+		  position: absolute; /* 스크롤 시에도 상단에 고정 */
+		  top: 0;
+		  left: 0;
+		  z-index: 1000;
+		  display: flex;
+		  justify-content: center; /* 중앙 정렬 */
+		  align-items: center;
+		  background-color: rgba(0, 0, 0, 0.2);
+		  width: 100%;
+		  height: 85px;
+		  box-sizing: border-box;
+		}
+		
+		.allheaders {
+		  width: 100%;
+		  max-width: 1200px; /* 최대 너비 설정 */
+		  margin: 0 auto;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		}
+		.breadcrumb {
+		  font-size: 14px;
+		  color: #555;
+		  padding: 5px 30px;
+		  border-radius: 5px;
+		  width: 100%;
+		  max-width: 1200px;
+		  margin: 100px auto 0;
+		  text-align: right;
+		  box-sizing: border-box;
+		}
+		.footer {
+		  color: #999999;
+		  text-align: center;
+		  padding: 50px 0;
+		  font-family: 'Jeju Gothic', sans-serif;
+		  font-size: 16px;
+		  line-height: 1.6;
+		  width: 100%;
+		  max-width: 1200px;
+		  margin: 0 auto; /* 중앙 정렬 */
+		  box-sizing: border-box;
+		}
+		
+		body {
+		  background: #F8F8FF;
+		  color: #333;
+		  font-family: "Jeju Gothic", serif;
+		  margin: 0;
+		  padding: 0;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		}
+		
+		.page {
+		  width: 100%;
+		  max-width: 1200px; 
+		  background-color: #F8F8FF;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  padding: 10px 20px 50px; /* 헤더와 푸터 여백 고려 */
+		  box-sizing: border-box;
+		}
+		
+		.menu-container {
+  			margin-top: 0px;
+		}
+		
+/* 	    body {
+            font-family: 'Jeju Gothic';
+            background-color: #F8F8FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .page {
+            width: 1200px;
+            height: 1080px;
+            background-color: #F8F8FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        } */
+        .container {
+            width: 662px;
+            height: 865px;
+            background: rgba(217, 217, 217, 0.24);
+            border-radius: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 21px;
+        } 
+        .image-container {
+            width: 661px;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -60px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        .slogan {
+            text-align: center;
+            font-size: 22px;
+            margin: 20px 0;
+            color:#333;
+            font-weight: lighter;
+        }
+        .login-info {
+            font-family: 'Jeju Gothic';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            position: relative;
+        }
+        .login-id, .login-pw {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 100px);
+            margin-top:15px;
+        }
+        .input-label {
+            font-size: 16px;
+            margin-left:30px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .input-box {
+            font-family: 'Jeju Gothic';
+            width: 373px;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #A39C9C;
+            font-size: 18px;
+            color: #333;
+            background: transparent;
+            outline: none;
+            margin-left: 30px;
+        }
+
+        input[type="password"] { 
+            font-family:"Gothic"; 
+        }
+
+        .login-btn {
+            font-family: 'Jeju Gothic';
+            width: 80px;
+            height: 110px;
+            background: #3b8eef;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: -20px;
+            top: 60%;
+            margin-right:30px;
+            transform: translateY(-50%);
+        }
+        .links a {
+            color: #184EE3;
+            text-decoration: none;
+        }
+        .signup {
+            color: #A39C9C;
+            text-decoration: none;
+        }
+        .separator-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+            gap:15px;
+        }
+        .separator {
+            width:227px;
+            height: 2px;
+            background: #C7C7C7;
+        }
+        .separator-text {
+            margin: 0 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 88px;
+            margin-top: 10px;
+        }
+        .social-icons img {
+            width: 73px;
+            height: 73px;
+            cursor: pointer;
+        }

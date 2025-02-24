@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>처방전 등록 팝업</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .popup {
+        background: white;
+        width: 423px;
+        height: 424px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .popup img {
+        width: 98px;
+        margin-bottom: 15px;
+      }
+      .popup h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .popup p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+      }
+      .popup button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      .popup button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup">
+      <img src="../image/pills.png" alt="처방전 아이콘" />
+      <h3>
+        처방전 등록시 처방받은 약과 함께<br />복용할 경우 부작용이 없는 약을
+        추천해 드립니다.
+      </h3>
+      <button class="register-btn">처방전 등록</button>
+      <p>
+        여행시 준비 할 상비약으로<br />
+        --- , --- , --- 입니다.
+      </p>
+      <button class="close-btn" onclick="closePopup()">닫기</button>
+    </div>
+
+    <script>
+      function closePopup() {
+        document.querySelector(".popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

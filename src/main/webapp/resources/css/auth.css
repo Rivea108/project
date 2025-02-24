@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+/* 기본 스타일 초기화 */
+/* 초기화 */
+body, ul, li, h2 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Jeju Gothic';
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.auth {
+ font-size: 44px;
+ color: #333333;
+ text-align: center;
+  margin-top: 50px;
+  padding: 0;
+  min-width: 1260px;
+}
+/* .breadcrumb {
+  position: absolute;
+  top: 100px; 맵 섹션 위에서 10px
+  right: 360px; 맵 섹션 오른쪽에서 20px
+  font-size: 14px;
+  color: #555;
+  background-color: rgba(255, 255, 255, 0.8); 배경 추가
+  padding: 5px 10px; 내부 여백
+  border-radius: 5px;
+  
+} */
+
+
+
+button{
+  font-family: 'Jeju Gothic';
+}
+
+main {
+    margin-top: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    /* max-width: 400px; */
+}
+
+.id-front{
+    width: 194px;
+    height: 65px;
+}
+
+.id-back{
+    width: 194px;
+    height: 65px;
+}
+
+
+
+
+/* 각 단계 스타일 */
+
+.identy{
+  display: flex;
+  justify-content: center;
+}
+.hyphen{
+  width: 20px;
+  margin: 0;
+  text-align: center;
+}
+button{
+  font-family: 'Jeju Gothic';
+}
+.tel-company{
+  color:white;
+  font-size: 24px;
+  text-align: center;
+  padding: 0;
+  font-family: 'Jeju Gothic';
+}
+
+.captcha{
+  width: 200px;
+  height: 65px;
+}
+
+.check-captcha{
+border-radius: 20px;
+width: 105px;
+height: 40px;
+font-size: 24px;
+padding: 0;
+justify-content: center;
+margin-top: 50px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.step { 
+	margin: 0 auto;
+	width: 420px;
+}
+
+/* .step-2{
+  width: 428px;
+} */
+
+.phone-number{
+  width: 250px;
+  height: 65px;
+  margin-left: 38px;
+}
+
+
+option{
+  color:white;
+}
+
+.id-number { display: flex; align-items: center; justify-content: space-between; }
+
+.captcha-container button{
+  color:white;
+}
+
+
+.tel-company{
+  background-color: #3B8EEF;
+  width: 127px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.authmain{
+  width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  color:#333333;  
+}
+
+.name{
+    width: 420px;
+    height: 65px;
+}
+
+label {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333333;
+    margin-top: 60px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.reflash{
+  margin-bottom: 25px;
+  margin-left: -8px;
+  padding: 0;
+  background-color: white;
+}
+
+.reflash >.reflash-img{
+  width: 27px;
+  height: 27px;
+}
+
+.sms-code{
+  width: 220px;
+  height: 65px;
+  margin-right: 15px;
+}
+
+.step-4{
+  /* width: 1000px; */
+  /* margin-bottom: 70px; */
+}
+.auth-text-title{
+  /* width: 555px; */
+  color: #aaaaaa;
+  font-size: 20px;
+}
+
+.auth-text-body{
+  color: #aaaaaa;
+  font-size: 16px;
+}
+
+.captcha-container {
+  /* width: 600px; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.captcha-container img {
+  width: 168px;  
+  height: 58px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.captcha-input{
+  width: 210px;
+  height: 60px;
+
+}
+
+button {
+    background-color: #3B8EEF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.verify-sms{
+    width: 180px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
+    border-radius: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* SMS 인증 번호 섹션 */
+#step-4 {
+    margin-top: 20px;
+}
+
+#step-4 p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+#step-4 input {
+    margin-bottom: 10px;
+}
+
+#step-4 button {
+    margin-top: 10px;
+}
+  

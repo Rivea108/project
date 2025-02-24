@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.letsgotravel.myapp.persistance.ScrapMapper">
+
+    <select id="getScrapList" parameterType="map" resultType="com.letsgotravel.myapp.domain.ScrapVo">
+        SELECT 
+            S.sidx AS sidx,
+            S.tcidx AS tcidx,
+            TC.destination AS destination,
+            TC.duration AS duration,
+            TC.peopleCount AS peopleCount,
+            CONCAT(TC.budgetMin, '만원 ~ ', TC.budgetMax, '만원') AS budget,
+            TC.groupType AS groupType,
+            TC.thema AS thema,
+            S.date AS date
+        FROM SCRAP S
+        JOIN TRAVEL_CONDITIONS TC ON S.tcidx = TC.tcidx
+        WHERE S.midx = #{midx}
+        AND S.delyn = 'N'
+        ORDER BY S.sidx DESC
+        LIMIT #{cri.pageStart}, #{cri.perPageNum};
+    </select>
+
+    <select id="scrapTotalCount" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM SCRAP WHERE midx = #{midx} AND delyn = 'N';
+    </select>
+
+    <select id="scrapSelectOne" parameterType="int" resultType="com.letsgotravel.myapp.domain.ScrapVo">
+        SELECT 
+            S.sidx AS sidx,
+            S.tcidx AS tcidx,
+            TC.destination AS destination,
+            TC.duration AS duration,
+            TC.peopleCount AS peopleCount,
+            CONCAT(TC.budgetMin, '만원 ~ ', TC.budgetMax, '만원') AS budget,
+            TC.groupType AS groupType,
+            TC.thema AS thema,
+            S.date AS date
+        FROM SCRAP S
+        JOIN TRAVEL_CONDITIONS TC ON S.tcidx = TC.tcidx
+        WHERE S.sidx = #{sidx};
+    </select>
+
+</mapper>

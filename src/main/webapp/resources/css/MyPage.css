@@ -1,0 +1,223 @@
+@charset "UTF-8";
+@import url('//fonts.googleapis.com/earlyaccess/jejugothic.css');
+
+		body, ul, li, h2 {
+		    margin: 0;
+		    padding: 0;
+		    list-style: none;
+		    font-family: 'Jeju Gothic';
+		}
+		
+		a {
+		    color: inherit;
+		    text-decoration: none;
+		}
+		
+		.header {
+		  position: absolute; /* 스크롤 시에도 상단에 고정 */
+		  top: 0;
+		  left: 0;
+		  z-index: 1000;
+		  display: flex;
+		  justify-content: center; /* 중앙 정렬 */
+		  align-items: center;
+		  background-color: rgba(0, 0, 0, 0.2);
+		  width: 100%;
+		  height: 85px;
+		  box-sizing: border-box;
+		}
+		
+		.allheaders {
+		  width: 100%;
+		  max-width: 1200px; /* 최대 너비 설정 */
+		  margin: 0 auto;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		}
+		.breadcrumb {
+		  font-size: 14px;
+		  color: #555;
+		  padding: 5px 30px;
+		  border-radius: 5px;
+		  width: 100%;
+		  max-width: 1200px;
+		  margin: 100px auto 0;
+		  text-align: right;
+		  box-sizing: border-box;
+		}
+		.footer {
+		  color: #999999;
+		  text-align: center;
+		  padding: 50px 0;
+		  font-family: 'Jeju Gothic', sans-serif;
+		  font-size: 16px;
+		  line-height: 1.6;
+		  width: 100%;
+		  max-width: 1200px;
+		  margin: 0 auto; /* 중앙 정렬 */
+		  box-sizing: border-box;
+		}
+
+		body {
+		  background: #F8F8FF;
+		  color: #333;
+		  font-family: "Jeju Gothic", serif;
+		  margin: 0;
+		  padding: 0;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		}
+		
+		.page {
+		  width: 100%;
+		  max-width: 1200px; 
+		  background-color: #F8F8FF;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  padding: 10px 20px 50px; /* 헤더와 푸터 여백 고려 */
+		  box-sizing: border-box;
+		}
+
+		.menu-container {
+  			margin-top: 0px;
+		} 
+		
+        .container {
+            width: 640px;
+            height: 905px;
+            background: rgba(217, 217, 217, 0.24);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .banner {
+            width: 640px;
+            height: 200px;
+            background: url('../images/mypage_hot_air_ballon.png') center/cover no-repeat;
+            position: relative;
+        }
+        .icon {
+            width: 140px;
+            height: 140px;
+            position: absolute;
+            left: 50%;
+            bottom: -70px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background-color: #F8F8FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form h2 {
+            font-size: 25px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .form {
+            padding: 80px 20px 20px;
+            text-align: center;
+        }
+        .form label {
+            display: block;
+            text-align: left;
+            width: 434px;
+            margin: 10px auto 5px;
+            margin-left: 80px;
+            font-size: 14px;
+            color: #555;
+            margin-top: 15px;
+        }
+
+
+        .form input {
+            width: 434px;
+            border: none;
+            border-bottom: 2px solid #999999;
+            outline: none;
+            background: transparent;
+            font-size: 16px;
+            color: #000;
+            padding:5px;
+        }
+        .form input::placeholder {
+            font-family: 'Jeju Gothic';
+            color: #C7C7C7;
+        }
+        .short-input {
+            width: 343px !important;
+        }
+        .check-btn {
+            font-family: 'Jeju Gothic';
+            width: 77px;
+            height: 21px;
+            background-color: #4fa3c4;
+            color: #F8F8FF;
+            border: none;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+        }
+        .update-back {
+            display: flex;
+            gap: 15px;
+        }
+        .update {
+            font-family: 'Jeju Gothic';
+            width: 94.5px;
+            height: 32px;
+            background-color: #3B8EEF;
+            color: #F8F8FF;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .back {
+            font-family: 'Jeju Gothic';
+            width: 94.5px;
+            height: 32px;
+            background-color: transparent;
+            color: #3B8EEF;
+            border: 2px solid #3B8EEF;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .delete {
+            font-family: 'Jeju Gothic';
+            width: 204px;
+            height: 32px;
+            background-color: #4FA3C4;
+            color: #F8F8FF;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        input[type="password"] { 
+          font-family:"Gothic"; 
+        }
+
+        .password-change{
+            margin-bottom: 20px;
+        }
+
+        

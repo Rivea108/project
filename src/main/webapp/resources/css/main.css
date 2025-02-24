@@ -1,0 +1,412 @@
+@charset "utf-8";
+@import url('//fonts.googleapis.com/earlyaccess/jejugothic.css');
+
+/* 기본 초기화 */
+body {
+	background: #F8F8FF;
+}
+
+body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Jeju Gothic';
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* 헤더 스타일 */
+.header {
+    position: absolute;
+    justify-content:space-between;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 다른 요소들보다 위에 보이도록 높은 z-index 설정 */
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* 배경 투명 */
+    width: 100%; /* 화면 가로 전체 */
+    min-width: 1260px;
+    padding: 20px 40px;
+    height: 85px;
+    box-sizing: border-box;
+}
+
+
+
+.logo {
+    width: 250px;
+    height: 75px;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-button {
+    width: 40px;
+    height: 40px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-button .bar {
+    width: 20px;
+    height: 1.5px;
+    background-color: black;
+}
+
+.side-menu {
+    position: absolute;
+    color:white;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: right;
+    width: 295px;
+    height: 40px;
+    background-color: #3B8EEF;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.3s;
+}
+/* 로그인 후 (logged-in 클래스가 추가될 경우) */
+.side-menu.logged-in {
+    width: 450px; /* 로그인 후 너비 */
+}
+  
+
+.side-menu.active {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+}
+
+.side-menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+.side-menu.logged-in ul{
+    padding: 0 35px 0 10px;
+}
+
+.side-menu ul li a {
+    color: white;
+    font-size: 16px;
+    /* font-weight: bold; */
+    white-space: nowrap;
+}
+
+/* parallax */
+.parallax {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -130px;
+    min-width: 1260px;
+    
+}
+
+.parallax__header {
+    /* height: 100vh; */
+    height: calc(100vh + 130px);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+.parallax__layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.parallax__layers img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    /* height: auto; */
+    height: 100%;
+  }
+
+/* 개별 레이어 위치 조정 */
+/* .parallax__layer-img[data-parallax-layer="1"] { */
+    /* top: -25px; 위로 이동 */
+    /* left: 30px; X축 이동 */
+    /* transform: scale(1.1); 확대 */
+/* } */
+
+.parallax__layer-img[data-parallax-layer="2"] {
+    position: absolute; /* z-index가 적용되도록 설정 */
+    /* top: 700px; */
+    bottom: -2%;
+    left: 0;
+    width: 100%; /* 이미지 크기 조정 */
+    object-fit: cover; /* 배경을 꽉 채우도록 설정 */
+}
+
+
+
+
+
+
+/* parallax 타이틀 */
+.parallax__title {
+    position: absolute;
+    /* margin-top: 388px; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 100%;
+    font-size: 100px; 
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    /* position: relative; */
+    z-index: 10; /* 레이어 순서 */
+  }
+/* Fade Effect */
+.parallax__fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* Adjust the height of the fade */
+    /* background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
+    z-index: 5; /* Below the title */
+  }
+ /* Content Section */
+ .parallax__content {
+    position: relative;
+    padding: 100px 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+    color: #ddd; /* Light text */
+    font-size: 1.2rem;
+  }
+
+/* parallax 끝 */
+
+
+:root {
+    --cover-timing: 0.5s; 
+    --cover-ease: cubic-bezier(0.66, 0.08, 0.19, 0.97);
+    --cover-stagger: 0.15s;
+    
+    --text-timing: .75s;
+    --text-stagger: 0.015s;
+    --text-ease: cubic-bezier(0.38, 0.26, 0.05, 1.07);
+    
+    --title-stagger: 0.05s;
+    --highlight: white;
+  }
+  
+  /* 카드 컨테이너 (2줄 3열 배치) */
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 */
+    gap: 20px; /* 카드 간격 */
+    width: 1200px; /* 전체 컨테이너의 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    /* padding: 0 15px; 좌우 여백 추가 */
+}
+  
+  /* 카드 스타일 */
+.card {
+    position: relative; /* 자식 요소의 위치 기준 설정 */
+    overflow: hidden;
+    border-radius: 10px;
+    width: calc(1100 / 3); /* 이미지와 동일한 너비 */
+    height: 506px; /* 이미지와 동일한 높이 */
+    box-sizing: border-box; /* 패딩과 경계를 크기에 포함 */
+    transform: none;
+}
+
+/* 카드 내부 이미지 */
+.card img {
+    display: block;
+    width: 100%; /* 카드 크기에 맞춤 */
+    height: 100%; /* 카드 크기에 맞춤 */
+    object-fit: cover; /* 이미지 비율 유지하며 카드에 맞춤 */
+    border-radius: 10px; /* 카드와 동일한 둥근 모서리 */
+}
+
+/* 반투명 검은색 필름 (위와 아래) */
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    width: 100%; /* 카드의 너비에 맞춤 */
+    height: 50%; /* 카드의 절반 높이 */
+    left: 0; /* 카드의 왼쪽에 맞춤 */
+    background: rgba(0, 0, 0, 0.5); /* 반투명 검은색 */
+    transform-origin: left; /* 변환 기준점을 왼쪽으로 설정 */
+    transform: scaleX(0); /* 처음에는 보이지 않음 */
+    transition: transform var(--cover-timing) var(--cover-ease);
+    z-index: 2; /* 이미지 위에 표시 */
+    box-sizing: border-box; /* 패딩 및 보더 크기 포함 */
+}
+.card:hover::before,
+.card:hover::after {
+    transform: scaleX(1); /* hover 시 완전히 펼쳐짐 */
+}
+/* 위쪽 필름 */
+.card::before {
+    top: 0; /* 카드 상단에 맞춤 */
+}
+
+/* 아래쪽 필름 */
+.card::after {
+    bottom: 0; /* 카드 하단에 맞춤 */
+    transition-delay: var(--cover-stagger); /* 아래쪽 필름 지연 시간 추가 */
+}
+  
+  /* 카드 내부 텍스트 */
+  .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      color: white;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      z-index: 3;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      box-sizing: border-box;
+  }
+  
+  /* 카드 hover 시 텍스트 보이기 */
+  .card:hover .text {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+  /* 제목 스타일 */
+  .card-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 5px;
+  }
+  
+  /* 설명 스타일 */
+  .card-description {
+    margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.4;
+  }
+
+/* 버튼 섹션 */
+.button-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px auto 100px;
+}
+
+.button-solid {
+    background: #3B8EEF;
+    border: 2px solid #3B8EEF;
+    font-family: 'Jeju Gothic';
+    font-size: 28px;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+
+.button-transparent {
+    background: transparent;
+    font-family: 'Jeju Gothic';
+    border: 2px solid #3B8EEF;
+    font-size: 28px;
+    color: #3B8EEF;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+
+/* push test */
+
+
+
+
+
+  /* 풋터 스타일 */
+.footer {
+    color: #999999; /* 텍스트 색상 */
+    text-align: center;
+    padding: 50px 0;
+    font-family: 'Jeju Gothic', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-width: 1260px;
+}
+
+/* 내용 정렬 */
+.footer-content p {
+    margin: 5px 0;
+    display: inline; /* 기본값으로 설정 */
+}
+
+.footer-content a {
+    color: #999999; /* 링크 색상 */
+    margin: 0 5px;
+    vertical-align: middle; /* 텍스트와 아이콘 정렬 */
+}
+
+/* GitHub 로고 스타일 */
+.github-logo {
+    width: 21px; /* GitHub 로고 크기 */
+    height: 21px;
+    margin-left: -3px; /* 텍스트와 간격 */
+    vertical-align: middle; /* 텍스트와 정렬 */
+    margin-top: 3px;
+}
+
+/* Velog 로고 스타일 */
+.velog-logo {
+    width: 50px; /* Velog 로고 크기 */
+    height: 16px;
+    margin-left: -4px; /* 텍스트와 간격 */
+    vertical-align: middle; /* 텍스트와 정렬 */
+    margin-top: 5px;
+}
+
+/* 카피라이트 */
+.copyright {
+    margin-top: 10px; /* 위 간격 */
+    display: block; /* 강제로 줄 바꿈 */
+    font-size: 16px; /* 크기 조정 */
+    color: #999999; /* 연한 텍스트 */
+    white-space: normal; /* 텍스트가 줄바꿈 되도록 설정 */
+    word-wrap: break-word; /* 텍스트 줄바꿈 가능 */
+}

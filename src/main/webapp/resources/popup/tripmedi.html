@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상비약 추천 팝업</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .popup {
+        background: white;
+        width: 423px;
+        height: 424px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .popup img {
+        width: 98px;
+        margin-bottom: 15px;
+      }
+      .popup h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .popup p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+      }
+      .popup button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      .popup button:hover {
+        background: #0056b3;
+      }
+      .popup {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup">
+      <img src="../image/pills.png" alt="상비약 아이콘" />
+      <h3>여행시 준비 할 상비약을 추천해 드릴게요</h3>
+      <p>추천드리는 상비약은 아래와 같습니다.</p>
+      <p>
+        현재 ***님이 먹고 있는 약은<br />
+        --- , --- , --- 입니다.
+      </p>
+      <p>
+        함께 복용하시면 안되는 약은<br />
+        --- , --- , --- 입니다.
+      </p>
+      <button onclick="closePopup()">닫기</button>
+    </div>
+
+    <script>
+      function closePopup() {
+        document.querySelector(".popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
